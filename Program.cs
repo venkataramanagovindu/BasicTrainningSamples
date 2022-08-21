@@ -2,6 +2,7 @@
 using System;
 using System.Text;
 using BasicTrainningSamples.IFaces;
+using System.Linq;
 
 namespace BasicTrainningSamples
 {
@@ -9,7 +10,11 @@ namespace BasicTrainningSamples
     {
         static void Main(string[] args)
         {
-
+            int[] arr = { 1,2,3,4,5};
+            Index idx = 2;
+            string x = null;
+            Console.WriteLine(arr[idx]);
+            Console.WriteLine(arr.ToList().GetRange(2,3));
             int num1 = 2147483647;
 
             Console.WriteLine(num1);
@@ -43,6 +48,19 @@ namespace BasicTrainningSamples
             Io1.m2();
             Io2.m1();
             mulInherObj.m1();
+
+
+            // :: :: Class and Types :: //
+
+            // Static ctor vs normal ctor execution
+            ClassExample ClassExampleObj = new ClassExample();
+
+            // Parent and Child ctor exec
+            ChildClass childObj = new ChildClass();
+            ParentClass? ParentObj = new ParentClass();
+            ParentClass ParentObj2 = new ChildClass();
+
+            childObj.add();
 
             Console.WriteLine("Hello World!");
         }
@@ -100,4 +118,79 @@ namespace BasicTrainningSamples
         {
         }
     }
+
+
+    // :: :: Static Class :: :: //
+    static class staticClassExample
+    {
+        static int i;
+        static staticClassExample()
+        {
+
+        }
+
+    }
+
+    class ClassExample
+    {
+        int i = 0;
+        static int j = 0;
+        public ClassExample()
+        {
+
+        }
+        static ClassExample()
+        {
+
+        }
+
+    }
+
+    class ParentClass
+    {
+        public ParentClass()
+        {
+
+        }
+
+        public void add()
+        {
+
+        }
+
+        public void add(int a)
+        {
+
+        }
+
+        public void ParentMethod()
+        {
+
+        }
+    }
+    class ChildClass:ParentClass
+    {
+        public ChildClass()
+        {
+
+        }
+
+        public void add(int a, int b)
+        {
+
+        }
+
+        public int add(int a, float b)
+        {
+            return 1;
+        }
+
+        // Method Hiding
+        public new void ParentMethod()
+        {
+
+        }
+    }
+
+
 }
